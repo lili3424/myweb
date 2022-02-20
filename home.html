@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ホームページ</title>
+    <link rel="stylesheet" type="text/css" href="home.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="echarts.min.js"></script>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="content">
+        <div class="middle">
+            <div class="us">
+                <h1>name:wangruofei ID:123456</h1>
+            </div>
+            <div class="picture">
+                <img src="cake.png" width="100%" height="100%">
+            </div>
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="footer"></div>
+    <ul class="select">
+        <li>
+            <div class="select-head">
+                <span class="select-head-cont"></span>
+                <span class="select-icon">▽</span>
+            </div>
+            <ul class="option">
+                <li class="option-item">day</li>
+                <li class="option-item">week</li>
+                <li class="option-item">month</li>
+            </ul>
+        </li>
+    </ul>
+    <div id="main">
+    </div>
+    <div class="kasann">加 算</div>
+    <div class="addtime">
+        <div class="lastweek">
+            先週
+            <div class="lastweektime">
+                20時間
+            </div>
+        </div>
+        <div class="thisweek">
+            今週
+            <div class="thisweektime">
+                30時間
+            </div>
+        </div>
+    </div>
+    <div class="member">
+        他のメンバー
+        <div class="user1">
+            <div class="left1">
+                <img src="p3.png" width="100%" height="100%">
+            </div>
+            <div class="middle1">
+                <br>Name</br>
+                <br>ID:AA71</br>
+            </div>
+            <div class="right1">
+                <h2>時間:time</h2>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //int
+        var selectHead = document.getElementsByClassName('select-head')[0];
+        var selectHeadCont = document.getElementsByClassName('select-head-cont');
+        var Option = document.getElementsByClassName('option')[0];
+        var optionItem = document.getElementsByClassName('option-item');
+
+        /*默认是第一个选项*/
+        selectHeadCont[0].innerHTML = optionItem[0].innerHTML;
+
+        /*点击后出现下拉框*/
+        selectHead.addEventListener('click', function() {
+            Option.style.display = 'block';
+        }, false);
+        /*点击选项后出现在下拉框*/
+        var len = optionItem.length;
+        for (var i = 0; i < len; i++) {
+            optionItem[i].index = i;
+            optionItem[i].addEventListener('click', function() {
+                selectHeadCont[0].innerHTML = optionItem[this.index].innerHTML;
+                Option.style.display = 'none';
+            }, false);
+        }
+        /*点击其他地方时，select会收起来*/
+        document.body.addEventListener('click', function() {
+            Option.style.display = 'none';
+        }.false);
+
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+            title: {
+                text: '使用時間'
+            },
+            xAxis: {
+                data: ["月曜", "火曜", "水曜", "木曜", "金曜", "土曜", "日曜"]
+            },
+            yAxis: {},
+            series: [{
+                name: '使用時間',
+                type: 'bar',
+                color: ['#FF2E6A'],
+                data: [6, 5, 7, 1, 2, 5, 1],
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

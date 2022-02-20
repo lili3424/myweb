@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログイン画面</title>
 
     <link rel="stylesheet" type="text/css" href="login.css" />
-    <script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src="login1.js"></script>
 </head>
 
 <body>
@@ -16,8 +17,8 @@
 
         <form method="post" action="login.js">
 
-            <p><label class="label_input">ユーザーネーム</label><input type="text" id="username" class="text_field" /></p>
-            <p><label class="label_input">パスワード</label><input type="text" id="password" class="text_field" /></p>
+            <p><label class="label_input">ユーザID</label><input type="text" id="user_id" placeholder="ＩＤを入力ください" /></p>
+            <p><label class="label_input">パスワード</label><input type="text" id="user_pw" placeholder="パスワードを入力ください" /></p>
 
             <div id="login_control">
                 <input type="button" id="btn_login" value="ログイン" onclick="login();" />

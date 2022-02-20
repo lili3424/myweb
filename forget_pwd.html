@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <button id="btn_reset_password">パスワードを修正</button>
+
+    <button id="btn_get_password">パスワードを見出す</button>
+
+    <div id="reset_password">
+
+    </div>
+
+    <div id="get_password">
+
+    </div>
+
+    <script>
+        $('#btn_reset_password').on('click', function() {
+
+                
+            $('#reset_password').show();
+
+                
+            $('#get_password').hide();
+
+        });
+
+        $('#btn_get_password').on('click', function() {
+
+                
+            $('#reset_password').hide();
+
+                
+            $('#get_password').show();
+
+        });
+    </script>
+</body>
+
+</html>
